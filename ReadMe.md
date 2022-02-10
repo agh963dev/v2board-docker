@@ -51,5 +51,10 @@ EOF
 docker-compose up -d
 docker-compose exec www bash
 
+# optional
+sed -i "s/memory_limit = 128M/memory_limit = 2G/" /etc/php7/php.ini
+php -r "echo ini_get('memory_limit').PHP_EOL;"
+
+# initialize
 ./init.sh
 ````
